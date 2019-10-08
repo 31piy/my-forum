@@ -1,7 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  body: MyText
+  parent_id: 1
+  parent_type: Post
+  user_id: 1
+  body: Comment 1
 
 two:
-  body: MyText
+  parent_id: 1
+  parent_type: Comment
+  user_id: 2
+  body: Comment 2

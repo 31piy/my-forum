@@ -10,6 +10,7 @@ git
 Ruby 2.6.3
 SQLite
 NodeJS
+Yarn
 ```
 
 ## Running locally
@@ -24,7 +25,10 @@ bin/setup
 Run the Rails server
 
 ```bash
-rails server
+bin/rails server
 ```
 
 Open the browser http://localhost:3000.
+
+## Running unit tests
+Run `bin/rails test` from the app root folder.
