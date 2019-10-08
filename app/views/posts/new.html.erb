@@ -1,0 +1,24 @@
+<div class="container p-3">
+
+  <%= link_to posts_path do %>
+    <%= octicon "chevron-left" %> Back to All Questions
+  <% end %>
+
+  <h2 class="h2 text-black-50 page-title">Ask a question</h2>
+  <p>Please specify the below details to click on the button create your question.</p>
+
+  <%= form_with scope: :post, url: posts_path, local: true do |form| %>
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :body %>
+      <%= form.text_area :body, class: 'form-control' %>
+    </div>
+  
+    <%= form.submit 'Create', class: 'btn btn-primary' %>
+  <% end %>
+
+</div>

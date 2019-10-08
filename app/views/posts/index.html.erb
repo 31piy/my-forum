@@ -1,0 +1,28 @@
+<div class="container p-3 posts-wrapper">
+
+  <h2 class="h2 text-black-50 page-title">All Questions</h2>
+
+  <ul class="list-unstyled posts-list">
+    <% @posts.each do |post| %>
+      <li class="post-item">
+        <h4 class="post-title"><%= post.title %></h4>
+        <p class="post-body"><%= post.body %></p>
+
+        <div class="post-footer d-flex justify-content-between">
+          <small class="post-action-buttons">
+            <%= link_to post_path(id: post.id) do %>
+              <%= octicon "comment" %> Comment
+            <% end %>
+          </small>
+
+          <small class="post-stats text-black-50">
+            At <%= post.updated_at %> by <%= post.user.name %>
+          </small>
+        </div>
+
+        <hr>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

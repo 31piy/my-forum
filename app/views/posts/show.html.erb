@@ -1,0 +1,40 @@
+<div class="container p-3">
+
+  <%= link_to posts_path do %>
+    <%= octicon "chevron-left" %> Back to All Questions
+  <% end %>
+
+  <h2 class="h2 text-black-50 page-title">
+    <%= @post.title %>
+  </h2>
+
+  <small class="post-stats text-black-50">
+    At <%= @post.updated_at %> by <%= @post.user.name %>
+  </small>
+
+  <p><%= @post.body %></p>
+
+  <ul class="list-unstyled post-comments">
+    <% @post.comments.each do |comment| %>
+      <li class="comment">
+        <img src="https://picsum.photos/32/32?<%= Time.now.to_f %>" class="author-thumb shadow">
+
+        <div class="ml-3">
+          <h6><%= comment.user.name %></h6>
+          <p><%= comment.body %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= form_with scope: :comment, url: post_comments_path(post_id: @post.id),
+    local: true, class: 'd-flex align-items-start justify-content-between' do |form| %>
+    <div class="form-group flex-fill">
+      <%= form.text_field :body, placeholder: 'Type your comment and click Add',
+        class: 'form-control form-control-sm' %>
+    </div>
+
+    <%= form.submit 'Add', class: 'btn btn-primary btn-sm ml-3' %>
+  <% end %>
+  
+</div>
