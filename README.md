@@ -1,24 +1,21 @@
-# README
+# MyForum
+MyForum is a sample Ruby on Rails application for users to create questions
+and provide answers to existing questions.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Pre-requisites
+Please ensure you have the following softwares already installed:
 
-Things you may want to cover:
+```
+git
+Ruby 2.6.3
+SQLite
+```
 
-* Ruby version
+## Running locally
+Checkout this repo to your local machine and run `bin/setup`:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+git checkout https://github.com/31piy/my-forum.git
+cd my-forum
+bin/setup
+```
