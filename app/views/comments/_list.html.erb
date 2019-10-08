@@ -1,0 +1,29 @@
+<ul class="list-unstyled post-comments">
+  <% comments.each do |comment| %>
+    <li>
+      <div class="comment">
+        <img src="https://picsum.photos/32/32?<%= Time.now.to_f %>" class="author-thumb shadow">
+
+        <div class="post-contents ml-3">
+          <h6><%= comment.user.name %></h6>
+          <p><%= comment.body %></p>
+
+          <small>
+            <a href data-role="toggle-comment-box"
+              data-parent-id="<%= comment.id %>" data-parent-type="Comment">
+              <%= octicon "comment" %> Comment
+            </a>
+          </small>
+
+          <div class="mt-2">
+            <%= render 'comments/form', parent: comment, post: @post %>
+          </div>
+        </div>
+      </div>
+
+      <% if comment.comments.count %>
+        <%= render 'comments/list', comments: comment.comments %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

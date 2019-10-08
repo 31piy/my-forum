@@ -5,21 +5,27 @@
   <ul class="list-unstyled posts-list">
     <% @posts.each do |post| %>
       <li class="post-item">
-        <h4 class="post-title"><%= post.title %></h4>
+        <h4 class="post-title">
+          <%= link_to post.title, post_path(id: post.id) %>
+        </h4>
         <p class="post-body"><%= post.body %></p>
 
         <div class="post-footer d-flex justify-content-between">
-          <small class="post-action-buttons">
-            <%= link_to post_path(id: post.id) do %>
+          <small>
+            <a href data-role="toggle-comment-box"
+              data-parent-id="<%= post.id %>" data-parent-type="Post">
               <%= octicon "comment" %> Comment
-            <% end %>
+            </a>
           </small>
 
-          <small class="post-stats text-black-50">
+          <small class="text-black-50">
             At <%= post.updated_at %> by <%= post.user.name %>
           </small>
         </div>
 
+        <div class="mt-2">
+          <%= render 'comments/form', parent: post, post: post %>
+        </div>
         <hr>
       </li>
     <% end %>

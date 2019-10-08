@@ -23,4 +23,13 @@
   .author-thumb {
     border-radius: 50%;
   }
+
+  .post-contents {
+    flex: 1;
+  }
+
+  > li > .post-comments {
+    display: block;
+    margin-left: 3rem;
+  }
 }

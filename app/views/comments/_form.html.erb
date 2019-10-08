@@ -1,0 +1,14 @@
+<%= form_with scope: :comment,
+  url: post_comments_path(post_id: post.id),
+  local: true,
+  class: 'd-flex align-items-start justify-content-between hidden',
+  data: { role: 'comment-form', 'parent-id': parent.id, 'parent-type': parent.class.name} do |form| %>
+  <div class="form-group flex-fill">
+    <%= form.text_field :body, placeholder: 'Type your comment and click Add',
+      class: 'form-control form-control-sm' %>
+  </div>
+
+  <%= form.text_field :parent_id, hidden: true, value: parent.id %>
+  <%= form.text_field :parent_type, hidden: true, value: parent.class.name %>
+  <%= form.submit 'Add', class: 'btn btn-primary btn-sm ml-3' %>
+<% end %>

@@ -18,7 +18,15 @@
    font-family: Roboto, sans-serif;
  }
 
+ a:hover {
+   text-decoration: none;
+ }
+
  .page-title {
   font-weight: 300;
   margin: 2rem 0;
+}
+
+.hidden {
+  display: none !important;
 }

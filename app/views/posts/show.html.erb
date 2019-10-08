@@ -13,28 +13,17 @@
   </small>
 
   <p><%= @post.body %></p>
+  <%= render 'comments/list', comments: @post.comments %>
 
-  <ul class="list-unstyled post-comments">
-    <% @post.comments.each do |comment| %>
-      <li class="comment">
-        <img src="https://picsum.photos/32/32?<%= Time.now.to_f %>" class="author-thumb shadow">
+  <small>
+    <a href data-role="toggle-comment-box"
+      data-parent-id="<%= @post.id %>" data-parent-type="Post">
+      <%= octicon "comment" %> Comment
+    </a>
+  </small>
 
-        <div class="ml-3">
-          <h6><%= comment.user.name %></h6>
-          <p><%= comment.body %></p>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+  <div class="mt-2">
+    <%= render 'comments/form', parent: @post, post: @post %>
+  </div>
 
-  <%= form_with scope: :comment, url: post_comments_path(post_id: @post.id),
-    local: true, class: 'd-flex align-items-start justify-content-between' do |form| %>
-    <div class="form-group flex-fill">
-      <%= form.text_field :body, placeholder: 'Type your comment and click Add',
-        class: 'form-control form-control-sm' %>
-    </div>
-
-    <%= form.submit 'Add', class: 'btn btn-primary btn-sm ml-3' %>
-  <% end %>
-  
 </div>

@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(comments: [:user]).find_by(id: params[:id])
+    @parent = @post
   end
 
   private
