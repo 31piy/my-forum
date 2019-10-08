@@ -9,6 +9,7 @@ Please ensure you have the following softwares already installed:
 git
 Ruby 2.6.3
 SQLite
+NodeJS
 ```
 
 ## Running locally
@@ -19,3 +20,11 @@ git checkout https://github.com/31piy/my-forum.git
 cd my-forum
 bin/setup
 ```
+
+Run the Rails server
+
+```bash
+rails server
+```
+
+Open the browser http://localhost:3000.
